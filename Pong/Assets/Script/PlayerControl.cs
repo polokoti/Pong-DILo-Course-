@@ -47,7 +47,7 @@ public class PlayerControl : MonoBehaviour
         {
             position.y = yBoundary;
         }
-        else if (position.y < yBoundary)
+        else if (position.y < -yBoundary)
         {
             position.y = -yBoundary;
         }
