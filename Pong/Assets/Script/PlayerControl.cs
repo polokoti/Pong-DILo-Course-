@@ -16,6 +16,8 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D rigidBody2D;
     //variabel score player
     private int score;
+    //titik tumbukan terakhir dengan bola, untuk menampilkan variabel fisika terkait tumbukan tersebut
+    private ContactPoint2D lastContactPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -69,4 +71,20 @@ public class PlayerControl : MonoBehaviour
     {
         get { return score; }
     }
+    
+    //untuk mengakses informasi titik kontak dari kelas lain
+    public ContactPoint2D LastContactPoint
+    {
+        get { return lastContactPoint; }
+    }
+
+    //ketika bertumbukan dengan bola, rekam titik kontaknya
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name.Equals("Ball"))
+        {
+            lastContactPoint = collision.GetContact(0);
+        }
+    }
 }
+

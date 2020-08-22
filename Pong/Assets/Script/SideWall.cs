@@ -19,10 +19,10 @@ public class SideWall : MonoBehaviour
             player.IncrementScore();
 
             //jika player belum mencapai skor maksimal
-            if(player.Score < gameManager.maxScore)
+            if(player.Score < gameManager.maxScore) 
             {
                 //restart game setelah mengenai dinding
-                anotherCollider.gameObject.SendMessage("Restart Game", 2.0f, SendMessageOptions.RequireReceiver);
+                anotherCollider.gameObject.SendMessage("RestartGame", 2.0f, SendMessageOptions.RequireReceiver);
             }
         }
     }

@@ -9,6 +9,9 @@ public class BallControl : MonoBehaviour
     //gaya awal untuk mendorong bola
     public float xInitialForce;
     public float yInitialForce;
+    //titik asal lintasan bola saat ini
+    private Vector2 terajectoryOrigin;
+
     // Start is called before the first frame update
     void ResetBall()
     {
@@ -50,6 +53,17 @@ public class BallControl : MonoBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();
         //Mulai game
         RestartGame();
+        terajectoryOrigin = transform.position;
+    }
+    //ketika bola beranjak dari sebuah tumbukan, rekam titik tumbukan tersebut
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        terajectoryOrigin = transform.position;
     }
 
+    //untuk megakses informasi titik asal lintasan
+    public Vector2 TerajectoryOrigin
+    {
+        get { return terajectoryOrigin; }
+    }
 }
