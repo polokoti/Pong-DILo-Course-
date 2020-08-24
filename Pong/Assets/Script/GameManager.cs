@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     //skor maksimal
     public int maxScore;
 
+    public Trajectory trajectory;
+
     // inisiasi rigidbody dan collider  
     private void Start()
     {
@@ -48,8 +50,14 @@ public class GameManager : MonoBehaviour
             ball.SendMessage("RestartGame", 0.5f, SendMessageOptions.RequireReceiver);
         }
 
+        if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height - 73, 120, 53), "TOOGLE \nDEBUG INFO"))
+        {
+            isDebugWindowShown = !isDebugWindowShown;
+            trajectory.enabled = !trajectory.enabled;
+        }
+
         //jika player1 mencapai sekor maksimal
-        if(player1.Score == maxScore)
+        if (player1.Score == maxScore)
         {
             // tampilkan teks "player one wins" di kiri layar
             GUI.Label(new Rect(Screen.width / 2 - 150, Screen.height / 2 - 10, 2000, 1000), "PLAYER ONE WINS");
@@ -101,10 +109,7 @@ public class GameManager : MonoBehaviour
             //kembalikan warna lama GUI
             GUI.backgroundColor = oldColor;
 
-            if(GUI.Button(new Rect(Screen.width/2 - 60, Screen.height -73,120,53), "TOOGLE \nDEBUG INFO" ))
-            {
-                isDebugWindowShown = !isDebugWindowShown;
-            }
+            
         }
     }
 }

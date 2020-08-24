@@ -557,6 +557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 700210563}
   - component: {fileID: 700210562}
+  - component: {fileID: 700210564}
   m_Layer: 0
   m_Name: Trajectory
   m_TagString: Untagged
@@ -593,6 +594,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &700210564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700210561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fced95f434a5a774a97cb70bf15a60c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 134043667}
+  ballAtCollision: {fileID: 728819810}
 --- !u!1 &728819810
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,11 +633,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728819810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fced95f434a5a774a97cb70bf15a60c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ball: {fileID: 0}
+  ballAtCollision: {fileID: 0}
 --- !u!212 &728819812
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -849,6 +866,7 @@ MonoBehaviour:
   player2: {fileID: 1405063767}
   ball: {fileID: 134043667}
   maxScore: 10
+  trajectory: {fileID: 700210564}
 --- !u!4 &1131045843
 Transform:
   m_ObjectHideFlags: 0
