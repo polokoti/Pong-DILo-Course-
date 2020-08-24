@@ -24,7 +24,17 @@ public class BallControl : MonoBehaviour
     void PushBall()
     {
         //menentukan nilai gaya dorongan antara -yinitialforce sampai yinitialforce 
-        float yRandomInitialForce = Random.Range(-yInitialForce, yInitialForce);
+        float yRandomInitialForce = Random.Range(0, 2); //Challenge 1
+        if (yRandomInitialForce < 1)
+        {
+            yRandomInitialForce = -yInitialForce;
+        }
+
+        else
+        {
+            yRandomInitialForce = yInitialForce;
+        }
+                
         //menentukan nilai jarak acak antara 0-2 (ekslusif)
         float randomDirection = Random.Range(0, 2);
         //jika nilai kurang dari 1 bergerak ke kiri
