@@ -51,19 +51,21 @@ public class BallControl : MonoBehaviour
         }
     }
 
-    void RestartGame()
+    public void RestartGame()
     {
         //memanggil fungsi resetball
         ResetBall();
         //memberikan gaya / memanggil fungsi Pushball setelah 2 detik
         Invoke("PushBall", 2);
+        FireBallSpawner.isSpawned = false;
     }
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
+        terajectoryOrigin = transform.position;
         //Mulai game
         RestartGame();
-        terajectoryOrigin = transform.position;
+ 
     }
     //ketika bola beranjak dari sebuah tumbukan, rekam titik tumbukan tersebut
     private void OnCollisionExit2D(Collision2D collision)
