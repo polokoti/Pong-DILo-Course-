@@ -41,7 +41,7 @@ public class BallControl : MonoBehaviour
         }
     }
 
-    void RestartGame()
+    public void RestartGame()
     {
         //memanggil fungsi resetball
         ResetBall();
